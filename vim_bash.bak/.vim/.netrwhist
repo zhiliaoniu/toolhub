@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/data/yangshengzhi1/dfs_fastdfs/thirdparty'
+let g:netrw_dirhist_2='/data/yangshengzhi1/dfs_fastdfs/tracker'
+let g:netrw_dirhist_3='/data/yangshengzhi1/dfs_fastdfs/client/meta_cache'
+let g:netrw_dirhist_4='/data/yangshengzhi1/brpc_proxy/blade-bin'
+let g:netrw_dirhist_5='/data/yangshengzhi1/dfs_fastdfs/tools/fdfs_profile/thirdparty/include/gflags'
+let g:netrw_dirhist_6='/data/yangshengzhi1/dfs_monitor/log_monitor/script'
+let g:netrw_dirhist_7='/data/yangshengzhi1/fdfsbrpc_server/thirdparty/fdfs_client/fastcommon'
+let g:netrw_dirhist_8='/data/yangshengzhi1/dfs_fcproxy/thirdparty/blade/vim'
+let g:netrw_dirhist_9='/data/yangshengzhi1/dfs_fcproxy/conf'

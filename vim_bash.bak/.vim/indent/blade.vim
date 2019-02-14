@@ -1,0 +1,1 @@
+/data/yangshengzhi1/fdfsbrpc_server/thirdparty/blade/vim/indent/blade.vim
