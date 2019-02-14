@@ -1,0 +1,690 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_dd2d5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_dd2d5.dir/build.make CMakeFiles/cmTC_dd2d5.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dd2d5.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_dd2d5.dir/CheckSymbolExists.c.o   -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_dd2d5
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dd2d5.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_dd2d5.dir/CheckSymbolExists.c.o  -o cmTC_dd2d5 
+CMakeFiles/cmTC_dd2d5.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_dd2d5] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_dd2d5/fast] Error 2
+
+File /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f07fe/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f07fe.dir/build.make CMakeFiles/cmTC_f07fe.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f07fe.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_f07fe.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.9/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f07fe
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f07fe.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_f07fe.dir/CheckFunctionExists.c.o  -o cmTC_f07fe -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_f07fe] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_f07fe/fast] Error 2
+
+
+Determining if the function ASN1_TIME_diff exists failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b4499/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b4499.dir/build.make CMakeFiles/cmTC_b4499.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b4499.dir/CheckFunctionExists.c.o
+/usr/bin/cc  -I/usr/local/include  -DCHECK_FUNCTION_EXISTS=ASN1_TIME_diff   -o CMakeFiles/cmTC_b4499.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.9/Modules/CheckFunctionExists.c
+Linking C executable cmTC_b4499
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b4499.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=ASN1_TIME_diff    -rdynamic CMakeFiles/cmTC_b4499.dir/CheckFunctionExists.c.o  -o cmTC_b4499 /usr/local/lib/libgflags.a /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so 
+CMakeFiles/cmTC_b4499.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `ASN1_TIME_diff'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_b4499] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_b4499/fast] Error 2
+
+
+Determining if the include file libdwarf/dwarf.h exists failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8b473/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8b473.dir/build.make CMakeFiles/cmTC_8b473.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_8b473.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -I/usr/local/include   -o CMakeFiles/cmTC_8b473.dir/CheckIncludeFile.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+/home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx:1:28: fatal error: libdwarf/dwarf.h: No such file or directory
+ #include <libdwarf/dwarf.h>
+                            ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_8b473.dir/CheckIncludeFile.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_8b473/fast] Error 2
+
+
+Determining if the include file malloc.h exists failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b29af/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b29af.dir/build.make CMakeFiles/cmTC_b29af.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b29af.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -I/usr/local/include  -std=gnu++14   -o CMakeFiles/cmTC_b29af.dir/CheckIncludeFile.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_b29af.dir/CheckIncludeFile.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_b29af/fast] Error 2
+
+
+Determining if the include file bits/c++config.h exists failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_89046/fast"
+/usr/bin/make -f CMakeFiles/cmTC_89046.dir/build.make CMakeFiles/cmTC_89046.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_89046.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -I/usr/local/include  -std=gnu++14   -o CMakeFiles/cmTC_89046.dir/CheckIncludeFile.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_89046.dir/CheckIncludeFile.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_89046/fast] Error 2
+
+
+Determining if the include file features.h exists failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_64fa2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_64fa2.dir/build.make CMakeFiles/cmTC_64fa2.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_64fa2.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -I/usr/local/include  -std=gnu++14   -o CMakeFiles/cmTC_64fa2.dir/CheckIncludeFile.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_64fa2.dir/CheckIncludeFile.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_64fa2/fast] Error 2
+
+
+Determining if the include file linux/membarrier.h exists failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_896ad/fast"
+/usr/bin/make -f CMakeFiles/cmTC_896ad.dir/build.make CMakeFiles/cmTC_896ad.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_896ad.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -I/usr/local/include  -std=gnu++14   -o CMakeFiles/cmTC_896ad.dir/CheckIncludeFile.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_896ad.dir/CheckIncludeFile.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_896ad/fast] Error 2
+
+
+Determining if the include file jemalloc/jemalloc.h exists failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_eac30/fast"
+/usr/bin/make -f CMakeFiles/cmTC_eac30.dir/build.make CMakeFiles/cmTC_eac30.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_eac30.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -I/usr/local/include  -std=gnu++14   -o CMakeFiles/cmTC_eac30.dir/CheckIncludeFile.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_eac30.dir/CheckIncludeFile.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_eac30/fast] Error 2
+
+
+Performing C++ SOURCE FILE Test COMPILER_HAS_UNKNOWN_WARNING_OPTION failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b8c9b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b8c9b.dir/build.make CMakeFiles/cmTC_b8c9b.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b8c9b.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DCOMPILER_HAS_UNKNOWN_WARNING_OPTION  -std=gnu++14   -Werror=unknown-warning-option -o CMakeFiles/cmTC_b8c9b.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_b8c9b.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_b8c9b/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_HAS_W_SHADOW_LOCAL failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fd261/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fd261.dir/build.make CMakeFiles/cmTC_fd261.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fd261.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DCOMPILER_HAS_W_SHADOW_LOCAL  -std=gnu++14   -Wshadow-local -o CMakeFiles/cmTC_fd261.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+c++: error: unrecognized command line option '-Wshadow-local'
+make[1]: *** [CMakeFiles/cmTC_fd261.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_fd261/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_HAS_W_SHADOW_COMPATIBLE_LOCAL failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f0f3b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f0f3b.dir/build.make CMakeFiles/cmTC_f0f3b.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f0f3b.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DCOMPILER_HAS_W_SHADOW_COMPATIBLE_LOCAL  -std=gnu++14   -Wshadow-compatible-local -o CMakeFiles/cmTC_f0f3b.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+c++: error: unrecognized command line option '-Wshadow-compatible-local'
+make[1]: *** [CMakeFiles/cmTC_f0f3b.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_f0f3b/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_HAS_W_NOEXCEPT_TYPE failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_23afe/fast"
+/usr/bin/make -f CMakeFiles/cmTC_23afe.dir/build.make CMakeFiles/cmTC_23afe.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_23afe.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DCOMPILER_HAS_W_NOEXCEPT_TYPE  -std=gnu++14   -Wnoexcept-type -o CMakeFiles/cmTC_23afe.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+c++: error: unrecognized command line option '-Wnoexcept-type'
+make[1]: *** [CMakeFiles/cmTC_23afe.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_23afe/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_HAS_W_NULLABILITY_COMPLETENESS failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_826a0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_826a0.dir/build.make CMakeFiles/cmTC_826a0.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_826a0.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DCOMPILER_HAS_W_NULLABILITY_COMPLETENESS  -std=gnu++14   -Wnullability-completeness -o CMakeFiles/cmTC_826a0.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+c++: error: unrecognized command line option '-Wnullability-completeness'
+make[1]: *** [CMakeFiles/cmTC_826a0.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_826a0/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_HAS_W_INCONSISTENT_MISSING_OVERRIDE failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_09418/fast"
+/usr/bin/make -f CMakeFiles/cmTC_09418.dir/build.make CMakeFiles/cmTC_09418.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_09418.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DCOMPILER_HAS_W_INCONSISTENT_MISSING_OVERRIDE  -std=gnu++14   -Winconsistent-missing-override -o CMakeFiles/cmTC_09418.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+c++: error: unrecognized command line option '-Winconsistent-missing-override'
+make[1]: *** [CMakeFiles/cmTC_09418.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_09418/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_HAS_F_ALIGNED_NEW failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4aa13/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4aa13.dir/build.make CMakeFiles/cmTC_4aa13.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4aa13.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DCOMPILER_HAS_F_ALIGNED_NEW  -std=gnu++14   -faligned-new -o CMakeFiles/cmTC_4aa13.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+c++: error: unrecognized command line option '-faligned-new'
+make[1]: *** [CMakeFiles/cmTC_4aa13.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_4aa13/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_HAS_F_OPENMP failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_269eb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_269eb.dir/build.make CMakeFiles/cmTC_269eb.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_269eb.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DCOMPILER_HAS_F_OPENMP  -std=gnu++14   -fopenmp -o CMakeFiles/cmTC_269eb.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_269eb.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_269eb/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Determining if the clock_gettime exist failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_21519/fast"
+/usr/bin/make -f CMakeFiles/cmTC_21519.dir/build.make CMakeFiles/cmTC_21519.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_21519.dir/CheckSymbolExists.c.o
+/usr/bin/cc  -I/usr/local/include   -o CMakeFiles/cmTC_21519.dir/CheckSymbolExists.c.o   -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_21519
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_21519.dir/link.txt --verbose=1
+/usr/bin/cc       -rdynamic CMakeFiles/cmTC_21519.dir/CheckSymbolExists.c.o  -o cmTC_21519 /usr/local/lib/libgflags.a /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so -lpthread -ldl 
+CMakeFiles/cmTC_21519.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `clock_gettime'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_21519] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_21519/fast] Error 2
+
+File /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef clock_gettime
+  return ((int*)(&clock_gettime))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function cplus_demangle_v3_callback exists failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_17185/fast"
+/usr/bin/make -f CMakeFiles/cmTC_17185.dir/build.make CMakeFiles/cmTC_17185.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_17185.dir/CheckFunctionExists.c.o
+/usr/bin/cc  -I/usr/local/include  -DCHECK_FUNCTION_EXISTS=cplus_demangle_v3_callback   -o CMakeFiles/cmTC_17185.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.9/Modules/CheckFunctionExists.c
+Linking C executable cmTC_17185
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_17185.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=cplus_demangle_v3_callback    -rdynamic CMakeFiles/cmTC_17185.dir/CheckFunctionExists.c.o  -o cmTC_17185 /usr/local/lib/libgflags.a /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so -lpthread -ldl 
+CMakeFiles/cmTC_17185.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `cplus_demangle_v3_callback'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_17185] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_17185/fast] Error 2
+
+
+Performing C++ SOURCE FILE Test FOLLY_HAVE_IFUNC failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_31757/fast"
+/usr/bin/make -f CMakeFiles/cmTC_31757.dir/build.make CMakeFiles/cmTC_31757.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_31757.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DFOLLY_HAVE_IFUNC  -std=gnu++14   -o CMakeFiles/cmTC_31757.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_31757.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_31757/fast] Error 2
+
+Source file was:
+
+  #pragma GCC diagnostic error "-Wattributes"
+  extern "C" void (*test_ifunc(void))() { return 0; }
+  void func() __attribute__((ifunc("test_ifunc")));
+  int main() { return 0; }
+Performing C++ SOURCE FILE Test FOLLY_HAVE_STD__IS_TRIVIALLY_COPYABLE failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_faf59/fast"
+/usr/bin/make -f CMakeFiles/cmTC_faf59.dir/build.make CMakeFiles/cmTC_faf59.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_faf59.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DFOLLY_HAVE_STD__IS_TRIVIALLY_COPYABLE  -std=gnu++14   -o CMakeFiles/cmTC_faf59.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_faf59.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_faf59/fast] Error 2
+
+Source file was:
+
+  #include <type_traits>
+  const bool val = std::is_trivially_copyable<bool>::value;
+  int main() { return 0; }
+Performing C++ SOURCE FILE Test FOLLY_HAVE_UNALIGNED_ACCESS failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e5792/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e5792.dir/build.make CMakeFiles/cmTC_e5792.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e5792.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DFOLLY_HAVE_UNALIGNED_ACCESS  -std=gnu++14   -o CMakeFiles/cmTC_e5792.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_e5792.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_e5792/fast] Error 2
+
+Return value: 1
+Source file was:
+
+  int main(int, char**) {
+    char buf[64] = {0};
+    unsigned long *ptr = (unsigned long *)(buf + 1);
+    *ptr = 0xdeadbeef;
+    return (*ptr & 0xff) == 0xef ? 0 : 1;
+  }
+Performing C++ SOURCE FILE Test FOLLY_HAVE_VLA failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8a8e6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8a8e6.dir/build.make CMakeFiles/cmTC_8a8e6.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_8a8e6.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DFOLLY_HAVE_VLA  -std=gnu++14   -o CMakeFiles/cmTC_8a8e6.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_8a8e6.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_8a8e6/fast] Error 2
+
+Source file was:
+
+  int main(int argc, char** argv) {
+    unsigned size = argc;
+    char data[size];
+    return 0;
+  }
+Performing C++ SOURCE FILE Test FOLLY_HAVE_WEAK_SYMBOLS failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e5753/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e5753.dir/build.make CMakeFiles/cmTC_e5753.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e5753.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DFOLLY_HAVE_WEAK_SYMBOLS  -std=gnu++14   -o CMakeFiles/cmTC_e5753.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_e5753.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_e5753/fast] Error 2
+
+Source file was:
+
+  extern "C" void configure_link_extern_weak_test() __attribute__((weak));
+  int main(int argc, char** argv) {
+    return configure_link_extern_weak_test == nullptr;
+  }
+Performing C++ SOURCE FILE Test FOLLY_HAVE_LINUX_VDSO failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ba129/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ba129.dir/build.make CMakeFiles/cmTC_ba129.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ba129.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DFOLLY_HAVE_LINUX_VDSO  -std=gnu++14   -o CMakeFiles/cmTC_ba129.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_ba129.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_ba129/fast] Error 2
+
+Return value: 1
+Source file was:
+
+  #include <dlfcn.h>
+  int main() {
+    void *h = dlopen("linux-vdso.so.1", RTLD_LAZY | RTLD_LOCAL | RTLD_NOLOAD);
+    if (h == nullptr) {
+      return -1;
+    }
+    dlclose(h);
+    return 0;
+  }
+Determining if the include file sys/types.h exists failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_11f3a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_11f3a.dir/build.make CMakeFiles/cmTC_11f3a.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_11f3a.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -I/usr/local/include  -std=gnu++14   -o CMakeFiles/cmTC_11f3a.dir/CheckIncludeFile.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_11f3a.dir/CheckIncludeFile.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_11f3a/fast] Error 2
+
+
+Determining if the include file stdint.h exists failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0a032/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0a032.dir/build.make CMakeFiles/cmTC_0a032.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_0a032.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -I/usr/local/include  -std=gnu++14   -o CMakeFiles/cmTC_0a032.dir/CheckIncludeFile.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_0a032.dir/CheckIncludeFile.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_0a032/fast] Error 2
+
+
+Determining if the include file stddef.h exists failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ffc90/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ffc90.dir/build.make CMakeFiles/cmTC_ffc90.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ffc90.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -I/usr/local/include  -std=gnu++14   -o CMakeFiles/cmTC_ffc90.dir/CheckIncludeFile.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_ffc90.dir/CheckIncludeFile.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_ffc90/fast] Error 2
+
+
+Determining size of __int128 failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_93716/fast"
+/usr/bin/make -f CMakeFiles/cmTC_93716.dir/build.make CMakeFiles/cmTC_93716.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_93716.dir/INT128_SIZE.cpp.o
+/usr/bin/c++   -I/usr/local/include  -std=gnu++14   -o CMakeFiles/cmTC_93716.dir/INT128_SIZE.cpp.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CheckTypeSize/INT128_SIZE.cpp
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_93716.dir/INT128_SIZE.cpp.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_93716/fast] Error 2
+
+/home/yangshengzhi1/folly/build/CMakeFiles/CheckTypeSize/INT128_SIZE.cpp:
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#endif
+
+#define SIZE (sizeof(__int128))
+char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Performing C++ SOURCE FILE Test FOLLY_HAVE_WCHAR_SUPPORT failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2b64f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2b64f.dir/build.make CMakeFiles/cmTC_2b64f.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2b64f.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DFOLLY_HAVE_WCHAR_SUPPORT  -std=gnu++14   -o CMakeFiles/cmTC_2b64f.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_2b64f.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_2b64f/fast] Error 2
+
+Return value: 1
+Source file was:
+
+  #include <cstddef>
+  #include <cwchar>
+  int main(int argc, char** argv) {
+    return wcstol(L"01", nullptr, 10) == 1 ? 0 : 1;
+  }
+Performing C++ SOURCE FILE Test FOLLY_HAVE_EXTRANDOM_SFMT19937 failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_bff76/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bff76.dir/build.make CMakeFiles/cmTC_bff76.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_bff76.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DFOLLY_HAVE_EXTRANDOM_SFMT19937  -std=gnu++14   -o CMakeFiles/cmTC_bff76.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_bff76.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_bff76/fast] Error 2
+
+Source file was:
+
+  #include <ext/random>
+  int main(int argc, char** argv) {
+    __gnu_cxx::sfmt19937 rng;
+    return 0;
+  }
+Performing C++ SOURCE FILE Test FOLLY_USE_LIBCPP failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a3669/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a3669.dir/build.make CMakeFiles/cmTC_a3669.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a3669.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DFOLLY_USE_LIBCPP  -std=gnu++14   -o CMakeFiles/cmTC_a3669.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_a3669.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_a3669/fast] Error 2
+
+Source file was:
+
+  #include <type_traits>
+  #if !_LIBCPP_VERSION
+  #error No libc++
+  #endif
+  int main() { return 0; }
+Performing C++ SOURCE FILE Test FOLLY_HAVE_XSI_STRERROR_R failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ff578/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ff578.dir/build.make CMakeFiles/cmTC_ff578.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ff578.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DFOLLY_HAVE_XSI_STRERROR_R  -std=gnu++14   -o CMakeFiles/cmTC_ff578.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_ff578.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_ff578/fast] Error 2
+
+Return value: 1
+Source file was:
+
+  #include <string.h>
+  #include <errno.h>
+  int main(int argc, char** argv) {
+    char buf[1024];
+    buf[0] = 0;
+    int ret = strerror_r(ENOMEM, buf, sizeof(buf));
+    return ret;
+  }
+Performing C++ SOURCE FILE Test HAVE_VSNPRINTF_ERRORS failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d64fb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d64fb.dir/build.make CMakeFiles/cmTC_d64fb.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d64fb.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DHAVE_VSNPRINTF_ERRORS  -std=gnu++14   -o CMakeFiles/cmTC_d64fb.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_d64fb.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_d64fb/fast] Error 2
+
+Return value: 1
+Source file was:
+
+  #include <stdarg.h>
+  #include <stdio.h>
+
+  int call_vsnprintf(const char* fmt, ...) {
+    char buf[256];
+    va_list ap;
+    va_start(ap, fmt);
+    int result = vsnprintf(buf, sizeof(buf), fmt, ap);
+    va_end(ap);
+    return result;
+  }
+
+  int main(int argc, char** argv) {
+    return call_vsnprintf("%", 1) < 0 ? 0 : 1;
+  }
+Performing C++ SOURCE FILE Test GFLAGS_NAMESPACE_IS_GFLAGS failed with the following output:
+Change Dir: /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0fa32/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0fa32.dir/build.make CMakeFiles/cmTC_0fa32.dir/build
+make[1]: Entering directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_0fa32.dir/src.cxx.o
+/usr/bin/c++   -I/usr/local/include  -DGFLAGS_NAMESPACE_IS_GFLAGS  -std=gnu++14   -o CMakeFiles/cmTC_0fa32.dir/src.cxx.o -c /home/yangshengzhi1/folly/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-std=gnu++14'
+make[1]: *** [CMakeFiles/cmTC_0fa32.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/data/yangshengzhi1/soft/toolhub/3rd_lib/folly/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_0fa32/fast] Error 2
+
+Source file was:
+
+    #include <gflags/gflags.h>
+    int main() {
+      gflags::GetArgv();
+      return 0;
+    }
+    

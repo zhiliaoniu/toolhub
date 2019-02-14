@@ -1,0 +1,37 @@
+main before in:0
+Generate beforei:2
+Generate i:2
+Generate beforei:3
+2
+main before in:1
+Filter out before.prime:2
+Filter out prime:2	 i:3
+Filter in prime:2	 i:3
+Filter in after.prime:2	 i:3
+Filter out before.prime:2
+3
+main before in:2
+Filter out before.prime:3
+Generate i:3
+Generate beforei:4
+Generate i:4
+Generate beforei:5
+Filter out prime:2	 i:4
+Filter out before.prime:2
+Filter out prime:2	 i:5
+Filter in prime:2	 i:5
+Filter in after.prime:2	 i:5
+Filter out before.prime:2
+Filter out prime:3	 i:5
+Filter in prime:3	 i:5
+Generate i:5
+Generate beforei:6
+Filter in after.prime:3	 i:5
+Filter out before.prime:3
+5
+Generate i:6
+Generate beforei:7
+Filter out prime:2	 i:6
+Filter out before.prime:2
+Filter out prime:2
+
