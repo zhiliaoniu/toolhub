@@ -1,0 +1,69 @@
+syntax = "proto3";
+import "common.proto";
+
+package budao;
+option java_package = "com.jxz.pb.budao";
+option java_multiple_files = true;
+option objc_class_prefix = "JXZ";
+
+
+service ParseURLService {
+    rpc ParseURL (ParseURLRequest) returns (ParseURLResponse); // 解析视频的URL
+    rpc ParseExternalURL (ParseExternalURLRequest) returns (ParseURLResponse); // 解析外部视频的URL
+}
+
+// 视频解析规则
+enum VideoParseRule {
+    PARSE_RULE_XIGUA           = 0;   // 西瓜
+    PARSE_RULE_DOUYIN          = 1;   // 抖音
+    PARSE_RULE_KUAISHOU        = 2;   // 快手
+    PARSE_RULE_NEIHANDUANZI    = 3;   // 内涵段子
+    PARSE_RULE_HAOKAN          = 4;   // 好看
+    PARSE_RULE_BOBO            = 5;   // 波波
+    PARSE_RULE_MIAOPAI         = 6;   // 秒拍
+    PARSE_RULE_MEIPAI          = 7;   // 内涵段子
+    PARSE_RULE_BZHAN           = 8;   // B站
+    PARSE_RULE_WEIBO           = 9;   // 微博
+    PARSE_RULE_LI              = 10;  // 梨视频
+    PARSE_RULE_FEIDIESHUO      = 11;  // 飞碟说
+    PARSE_RULE_YANGGUANGSHIPIN = 12;  // 阳光视频
+}
+
+message ParseURLRequest {
+    Header header = 1; // header
+    string video_id = 2; // 视频id
+}
+
+message ParseExternalURLRequest {
+    Header header = 1; // header
+    uint32 code = 2; // 从外部抓取返回的状态码
+    string body = 3; // 从外部抓回的数据
+    string func = 4; // next标识
+    string video_id = 5; // 视频id
+    uint32 request_num = 6; // 客户端已经请求次数
+    uint32 request_time = 7; // 上一次抓取的耗时
+}
+
+message ParseURLResponse {
+    message Play {
+        string video_url = 1; // 可播放视频流地址
+        map<string, string> header = 2; // 播放流header
+    }
+    message Craw {
+        string next = 1; // 标识是否需要下一次操作
+        string video_url = 2; // 抓取地址
+        bool request_post = 3; // 标识请求方式，分为post和get两种，默认为post方式
+        map <string, string> header = 4; // 抓取部分外部视频所需的header
+        bytes field = 5; // post时的透传的postbody
+    }
+    message Web {
+        string web_url = 1; // 跳转链接
+    }
+
+    Status status = 1; // 服务器返回的状态信息
+    oneof Type {
+        Play play = 2;
+        Craw craw = 3;
+        Web web = 4;
+    }
+}

@@ -1,0 +1,67 @@
+syntax = "proto3";
+import "common.proto";
+
+package budao;
+option java_package = "com.jxz.pb.budao";
+option java_multiple_files = true;
+option objc_class_prefix = "JXZ";
+
+service CommentService {
+    rpc CommentVideo (CommentVideoRequest) returns (CommentVideoResponse); // 评论视频
+    rpc ReplyComment (ReplyCommentRequest) returns (ReplyCommentResponse); // 回复评论
+    rpc GetVideoCommentList (GetVideoCommentListRequest) returns (GetVideoCommentListResponse); // 获取视频评论列表信息
+    rpc GetCommentReplyList (GetCommentReplyListRequest) returns (GetCommentReplyListResponse); // 获取评论回复列表信息
+}
+
+message CommentVideoRequest {
+    Header header = 1; // header
+    string video_id = 2; // 视频id
+    string content = 3; // 评论内容
+}
+
+message CommentVideoResponse {
+    Status status = 1; // 服务器返回的状态信息
+    CommentItem comment_item = 2; // 评论信息
+}
+
+message ReplyCommentRequest {
+    Header header = 1; // header
+    oneof Type {
+        string comment_id = 2; // 评论id
+        string reply_id = 3; // 回复id
+    }
+    string content = 4; // 回复内容
+}
+
+message ReplyCommentResponse {
+    Status status = 1; // 服务器返回的状态信息
+    ReplyItem reply_item = 2; // 回复信息
+}
+
+message GetVideoCommentListRequest {
+    Header header = 1; // header
+    string video_id = 2; // 视频id
+    string last_comment_id = 3; // 最后展示的评论id
+    uint64 last_comment_time = 4; // 最后展示的评论时间 
+}
+
+message GetVideoCommentListResponse {
+    Status status = 1; // 服务器返回的状态信息
+    repeated CommentItem hot_comment_items = 2; // 热门评论
+    repeated CommentItem comment_items = 3; // 评论信息
+    bool has_more = 4; // 是否还有更多
+}
+
+message GetCommentReplyListRequest {
+    Header header = 1; // header
+    string comment_id = 2; // 评论id
+    string last_reply_id = 3; // 最后展示的回复评论id
+    uint64 last_reply_time = 4; // 最后展示的回复评论时间
+}
+
+message GetCommentReplyListResponse {
+    Status status = 1; // 服务器返回的状态信息
+    CommentItem comment_item = 2; // 评论信息 
+    repeated ReplyItem reply_items = 3; // 评论的回复信息
+    bool has_more = 4; // 是否还有更多
+}

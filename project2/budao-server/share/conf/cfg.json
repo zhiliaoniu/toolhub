@@ -1,0 +1,36 @@
+{
+    "appName": "share_server",
+    "httpAddr": ":10213",
+    "db": {
+        "redis": {
+            "addr": "221.228.106.9:4019",
+            "maxIdle": 2000,
+            "db": 0,
+            "connTimeout": 1000,
+            "readTimeout": 1000,
+            "writeTimeout": 1000
+        }
+    },
+    "loggerconf": {
+        "debug": false,
+        "filename": "/data/budao-server/logs/share-server.log",
+        "maxdays": 15
+    },
+    "logCollectorConf": {
+        "isDisable": false,
+        "appName": "share_server",
+        "maxInterMSec": 500,
+        "maxRemainNum": 2000,
+        "reportFormat": {
+            "appVersion": "V3.0",
+            "scale": [50,100,150,200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000]
+        }
+    },
+    "videoBottomPageConf": {
+        "commentNUM": 10
+    },
+    "topicPageConf": {
+        "videoNUM": 10
+    },
+    "downLoadURL": "http://sj.qq.com/myapp/detail.htm?apkName=com.yy.budao"
+}

@@ -1,0 +1,46 @@
+syntax = "proto3";
+import "common.proto";
+
+package budao;
+option java_package = "com.jxz.pb.budao";
+option java_multiple_files = true;
+option objc_class_prefix = "JXZ";
+
+service UserService {
+    rpc Login (LoginRequest) returns (LoginResponse); // 用户登录
+}
+
+enum LoginType {
+    PHONE = 0; // 账号密码登录
+    WEIXIN = 1; // 微信登录
+    QQ = 2; // QQ登录
+    WEIBO = 3; // 微博登录
+}
+
+enum UserGender {
+    MALE = 0; // 男性
+    FEMALE = 1; // 女性
+}
+
+message LoginRequest {
+    Header header = 1; // header
+    LoginType login_type = 2; // 登录方式
+    string openid = 3; // open_id
+    string token = 4; // token
+    string user_name = 5; // 用户名称
+    string user_photo = 6; // 用户头像
+    UserGender user_gender = 7; // 用户性别
+}
+
+message LoginResponse {
+    Status status = 1; // 服务器返回的状态信息
+    UserInfo user_info = 2; // 后台存储的用户信息
+}
+
+// 后台返回的用户信息
+message UserInfo {
+    string user_id = 1; // 用户id
+    string user_name = 2; // 用户名
+    string user_photo = 3; // 用户头像
+    string token = 4; //登录态校验
+}

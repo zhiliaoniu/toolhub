@@ -1,0 +1,99 @@
+syntax = "proto3";
+//import "common.proto";
+import "parseurl.proto";
+
+package budao;
+option java_package = "com.jxz.pb.budao";
+option java_multiple_files = true;
+option objc_class_prefix = "JXZ";
+
+service Transfer{
+  rpc PostVideos (PostVideosRequest) returns (PostVideosResponse);
+  rpc AuditContent (AuditContentRequest) returns (AuditContentResponse);
+};
+
+// 视频来源
+enum EVideoSource
+{
+    E_VideoSource_CRAWL_XIGUA        = 0;  //  抓取西瓜视频
+    E_VideoSource_CRAWL_DOUYIN       = 1;  //  抓取抖音视频
+    E_VideoSource_CRAWL_KUAISHOU     = 2;  //  抓取快手视频
+    E_VideoSource_CRAWL_NEIHANDUANZI = 3;  //  抓取内涵段子视频
+    E_VideoSource_CRAWL_JIKE         = 4;  //  抓取即刻视频
+    E_VideoSource_CRAWL_HAOKAN       = 5;  //  抓取好看视频
+    E_VideoSource_CRAWL_BOBO         = 6;  //  抓取波波视频
+    E_VideoSource_CRAWL_MIAOPAI      = 7;  //  抓取秒拍视频
+    E_VideoSource_CRAWL_MEIPAI       = 8;  //  抓取美拍视频
+    E_VideoSource_CRAWL_BZHAN        = 9;  //  抓取B站视频
+    E_VideoSource_CRAWL_WEIBO        = 10; //  抓取微博视频
+    E_VideoSource_CRAWL_LI           = 11; //  梨视频
+    E_VideoSource_CRAWL_FEIDIESHUO   = 12; //  飞碟说
+    E_VideoSource_CRAWL_YANGGUANG    = 14; //  阳光视频
+    E_VideoSource_OWN_OPS            = 99; //  本地运营
+    E_VideoSource_OWN_CDN            = 100;//  自建CDN
+    E_VideoSource_OWN_TEST           = 101;//  自建用于测试
+}
+
+// 视频信息
+message PostVideo {
+    string source_vid = 1; // 抓取的视频id,由时间戳和随机数生成
+    string vsource_vid = 2; // 抓取的视频id，由sourcetype_videoid组成
+    string pic = 3; // 视频封面图
+    string video_url = 4; // 视频地址
+    string title = 5; // 视频标题
+    uint32 width = 6; // 视频宽度
+    uint32 height = 7; // 视频高度
+    uint32 duration =8; // 视频时长
+    EVideoSource eVideoSource = 9; // 数据来源
+    VideoParseRule eVideoParseRule = 10; // 数据解析规则
+}
+
+enum EPostResult {
+    E_PostResult_OK           = 0; //推送成功
+    E_PostResult_Server_Error = 1; //服务端内部错误
+    E_PostResult_Params_Error = 2; //客户端参数错误
+    E_PostResult_Repeated     = 3; //推送重复
+}
+
+enum EAuditResult {
+    E_AuditResult_Pass = 0; //审核通过
+    E_AuditResult_Unpass = 1;//审核没通过
+}
+
+// 视频推送结果
+message PostVideoResult {
+    string vid = 1; //后台生成的视频id
+    string source_vid = 2; // 抓取的视频id
+    EVideoSource eVideoSource = 3; // 数据来源
+    VideoParseRule eVideoParseRule = 4; // 数据解析规则
+    EPostResult result = 5; //推送结果状态
+}
+
+// 视频推送请求
+message PostVideosRequest
+{
+    repeated PostVideo tVideos = 1; // 视频信息,最大100条
+}
+
+// 视频推送响应
+message PostVideosResponse
+{
+    repeated PostVideoResult tResults = 1;
+}
+
+//---------------------------------------------------
+// 审核文本请求
+message AuditContentRequest
+{
+    uint64 content_id = 1; //内容id
+    string content = 2; //内容
+    string content_type = 3; //文本类型,取值comment,title,question
+}
+
+// 审核文本响应
+message AuditContentResponse
+{
+    uint64 content_id = 1; //内容id
+    EPostResult result = 2; //推送结果状态
+    EAuditResult audit_result = 3;//审核结果
+}

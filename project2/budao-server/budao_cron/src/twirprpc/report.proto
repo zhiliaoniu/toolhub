@@ -1,0 +1,62 @@
+syntax = "proto3";
+import "common.proto";
+
+package budao;
+option java_package = "com.jxz.pb.budao";
+option java_multiple_files = true;
+option objc_class_prefix = "JXZ";
+
+service ReportService {
+    rpc ReportStatisData (ReportStatisDataRequest) returns (ReportStatisDataResponse);
+    rpc ReportBatchData (ReportBatchDataRequest) returns (ReportBatchDataResponse);
+}
+
+message VideoBase {
+    string video_id   = 1; // 视频id
+    string trace_id   = 2; // trace
+    string channel_id = 3; // 所在的channel
+    string payload    = 4; // 客户端透传信息
+}
+
+message VideoClick {
+    VideoBase base = 1; // 基础数据 
+}
+
+message VideoProgress {
+    VideoBase base  = 1; // 基础数据 
+    uint32 duration = 2; // 进度时长
+    float play_duration = 3; // 播放时长浮点值
+}
+
+message VideoExposure {
+    VideoBase base = 1; // 基础数据
+}
+
+message BannerClick {
+    string banner_id = 1; // banner id 
+}
+
+message ReportStatisDataRequest {
+    Header header = 1; // header
+    oneof Type {
+        VideoClick click = 2;
+        VideoProgress progress = 3;
+        VideoExposure exposure = 4;
+        BannerClick banner_click = 5;
+    }
+}
+
+message ReportStatisDataResponse {
+    Status status = 1; // 服务器返回的状态信息
+}
+
+message ReportBatchDataRequest {
+    Header header = 1; // header
+    repeated VideoClick click = 2;
+    repeated VideoProgress progress = 3;
+    repeated VideoExposure exposure = 4;
+}
+
+message ReportBatchDataResponse {
+    Status status = 1; // 服务器返回的状态信息
+}

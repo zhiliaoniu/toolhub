@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package scheduler;
+
+enum ErrorType {
+    OK = 0;
+    UNKNOWN = 1;
+}
+
+message Error {
+    ErrorType type = 1;
+    string message = 2;
+}
+
+message RequestHeader {
+    // cluster_id is the ID of the cluster which be sent to.
+    uint64 cluster_id = 1;
+    // worker id，某些场景下需要在请求中携带worker的唯一id
+    string worker_id = 2;
+}
+
+message ResponseHeader {
+    // cluster_id is the ID of the cluster which sent the response.
+    uint64 cluster_id = 1;
+    Error error = 2;
+}
+
+

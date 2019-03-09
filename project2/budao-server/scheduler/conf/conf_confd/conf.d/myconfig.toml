@@ -1,0 +1,9 @@
+[template]
+src = "myconfig.conf.tmpl"
+dest = "/tmp/myconfig.conf"
+keys = [
+	"/myapp/database/url",
+	"/myapp/database/user",
+]
+check_cmd = "/home/yangshengzhi/budao-server/scheduler/bin/a.sh check_cmd"
+reload_cmd = "/home/yangshengzhi/budao-server/scheduler/bin/a.sh reload_cmd"

@@ -1,0 +1,7 @@
+[template]
+src = "budao_abtest.conf.tmpl"
+dest = "/data/budao-server/scheduler/conf/budao/budao_abtest.json"
+keys = [
+	"/abtest/budao",
+]
+reload_cmd = "/home/yangshengzhi/budao-server/budao/bin/reload_conf.sh /data/budao-server/scheduler/conf/budao/budao_abtest.json"

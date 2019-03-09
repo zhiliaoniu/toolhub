@@ -1,0 +1,30 @@
+syntax = "proto3";
+import "common.proto";
+
+package budao;
+option java_package = "com.jxz.pb.budao";
+option java_multiple_files = true;
+option objc_class_prefix = "JXZ";
+
+service ConfigService {
+    rpc GetChannelList (GetChannelListRequest) returns (GetChannelListResponse); // 获取频道信息
+    rpc GetTabList (GetTabListRequest) returns (GetTabListResponse); // 获取tab列表
+}
+
+message GetChannelListRequest {
+    Header header = 1; // header
+}
+
+message GetChannelListResponse {
+    Status status = 1; // 服务器返回的状态信息
+    repeated ChannelItem channel_items = 2; // 频道信息
+}
+
+message GetTabListRequest {
+    Header header = 1; // header
+}
+
+message GetTabListResponse {
+    Status status = 1; // 服务器返回的状态信息
+    repeated TabItem tab_items = 2; // tab信息
+}

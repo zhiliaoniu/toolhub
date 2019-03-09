@@ -1,0 +1,111 @@
+{
+    "appName": "budao_server",
+    "httpAddr": ":8080",
+    "db": {
+        "mysql": {
+            "budao": {
+                "master": "221.228.79.244:8066",
+                "slave": "183.36.121.66:8066",
+                "passwd": "xywaD3kfz",
+                "user": "jxz_db@jxz_bd",
+                "database":"budao",
+                "tableDesc": {
+                    "video_": 1,
+                    "comment_": 1,
+                    "user_": 1,
+                    "user_favor_comment_": 1,
+                    "user_favor_video_": 1,
+                    "user_shared_video_": 1,
+                    "user_question_": 1,
+                    "user_follow_topic_": 1,
+                    "topic_video_": 1,
+                    "user_token_": 1
+                }
+            }
+        },
+        "redis": {
+            "addr": "221.228.106.9:4019",
+            "maxIdle": 2000,
+            "db": 0,
+            "connTimeout": 1000,
+            "readTimeout": 1000,
+            "writeTimeout": 1000
+        }
+    },
+    "auditconf": {
+        "video": {
+            "auditAddr": "221.228.107.63:10015",
+            "appid": "301068",
+            "chid": "301068",
+            "secretId": "301068",
+            "secretKey": "3Y302vwDgxqcPvNKPfq6MwIM8FtJy2Zb",
+            "punishConf": {
+                "listenAddr": ":8081"
+            },
+            "isDisable": true
+        },
+        "comment": {
+            "auditAddr": "http://twapi.yy.com/txt/api",
+            "appid": "999970035",
+            "secretId": "7a7ca6c3",
+            "secretKey": "ce9e0527cddc386ada3b07a7ca6c3131",
+            "punishConf": {
+                "listenAddr": ":8081"
+            }
+        },
+        "title": {
+            "auditAddr": "http://twapi.yy.com/txt/api",
+            "appid": "999970033",
+            "secretId": "73b4dcb2",
+            "secretKey": "3f6c4c9d0573b4dcb2591ec4b095f673",
+            "punishConf": {
+                "listenAddr": ":8081"
+            }
+        }
+    },
+    "loggerconf": {
+        "debug": true,
+        "filename": "/data/budao-server/logs/budao-server.log",
+        "maxdays": 15
+    },
+    "logCollectorConf": {
+        "isDisable": false,
+        "appName": "budao_server",
+        "maxInterMSec": 500,
+        "maxRemainNum": 2000,
+        "reportFormat": {
+            "appVersion": "V3.0",
+            "scale": [50000,100000,150000,200000,250000,300000,350000,400000,450000,500000,550000,600000,650000,700000,750000,800000,850000,900000,950000,1000000]
+        }
+    },
+    "commentConf": {
+        "cronTaskDisable"  : false,
+        "cronTaskInteranlSec" : 60,
+        "returnHotCommentNum" : 2,
+        "returnCommentNum" : 10,
+        "returnReplyNum"   : 10,
+        "explicitReplyNum" : 2
+    },
+    "timelineConf": {
+        "showQuestion": false,
+        "cronTaskDisable": false,
+        "cronTaskInteranlSec" : 60,
+        "maxRetVideoNum" : 5,
+        "retPerTopicViewNum": 10,
+        "exposeVideoMaxLen": 5000
+    },
+    "recommendClientConf": {
+        "reqTimeoutMs"  : 500,
+        "addr" : "http://10.26.129.180:8001"
+    },
+    "topicConf": {
+        "shareDisabled": true
+    },
+    "testChannelShow": "false",
+    "iosAuditConf": {
+        "vidsFileName": "../conf/ios_audit_vids",
+        "topicIdsFileName": "../conf/ios_audit_topicids",
+        "appVersion": "3.1.1"
+    },
+    "parseTypeConf": "parse_1; parse_2; parse_3; parse_4; parse_5; parse_6; parse_8; parse_9; parse_10;"
+}

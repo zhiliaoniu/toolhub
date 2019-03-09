@@ -1,0 +1,37 @@
+syntax = "proto3";
+import "common.proto";
+
+package budao;
+option java_package = "com.jxz.pb.budao";
+option java_multiple_files = true;
+option objc_class_prefix = "JXZ";
+
+service ShareService {
+    rpc ShareVideoBottomPage (ShareVideoBottomPageRequest) returns (ShareVideoBottomPageResponse);
+    rpc ShareTopicPage (ShareTopicPageRequest) returns (ShareTopicPageResponse);
+}
+
+message ShareVideoBottomPageRequest {
+    string topic_id = 1; // 话题id
+    string video_id = 2; // 视频id
+}
+
+message ShareVideoBottomPageResponse {
+    Status status = 1; // 服务器返回的状态信息
+    TopicItem topic_item = 2; // 主题信息
+    VideoItem video_item = 3; // 视频信息
+    ArticleItem article_item = 4; // 文章信息
+    repeated CommentItem comment_items = 5; // 评论信息
+    string download_url = 6; // 下载链接
+}
+
+message ShareTopicPageRequest {
+    string topic_id = 1; // 话题id
+}
+
+message ShareTopicPageResponse {
+    Status status = 1; // 服务器返回的状态信息
+    TopicItem topic_item = 2; // 主题信息
+    repeated ListItem list_items = 3; // 返回列表数据
+    string download_url = 4; // 下载链接
+}

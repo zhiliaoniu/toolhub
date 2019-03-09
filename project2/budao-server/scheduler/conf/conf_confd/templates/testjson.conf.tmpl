@@ -1,0 +1,13 @@
+{
+{{range $dir := lsdir "/abtest/cgi/"}}
+"{{base $dir}}": {
+    {{$custdir := printf "/abtest/cgi/%s/*" $dir}}{{range gets $custdir}}
+    "IP": {{$data := json .Value}}{{$data.IP}}:80,
+    "age": {{$data.age}},
+    "map": {{$data.map.k1}},
+    "data": {{.Value}},
+    {{end}}
+    }
+{{end}}
+}
+

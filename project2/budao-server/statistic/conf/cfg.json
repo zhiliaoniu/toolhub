@@ -1,0 +1,42 @@
+{
+    "appName": "statistic_server",
+    "httpAddr": ":10127",
+    "db": {
+        "mysql": {
+            "budao": {
+                "master": "221.228.79.244:8066",
+                "passwd": "xywaD3kfz",
+                "user": "jxz_db@jxz_bd",
+                "database":"budao",
+                "tableDesc": {
+                    "video_": 1,
+                    "comment_": 1,
+                    "user_": 1,
+                    "user_favor_comment_": 1,
+                    "user_favor_video_": 1,
+                    "user_shared_video_": 1,
+                    "user_question_": 1,
+                    "user_follow_topic_": 1,
+                    "topic_video_": 1,
+                    "user_token_": 1,
+                    "user_statistic_": 1
+                }
+            }
+        }
+    },
+    "loggerconf": {
+        "debug": true,
+        "filename": "/data/budao-server/logs/statistic-server.log",
+        "maxdays": 360 
+    },
+    "logCollectorConf": {
+        "isDisable": false,
+        "appName": "statistic_server",
+        "maxInterMSec": 500,
+        "maxRemainNum": 2000,
+        "reportFormat": {
+            "appVersion": "V3.0",
+            "scale": [50,100,150,200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000]
+        }
+    }
+}

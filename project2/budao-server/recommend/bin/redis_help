@@ -1,0 +1,27 @@
+#!/bin/bash
+
+redisn="/usr/bin/redis-cli -h 61.160.36.168 -p 6395"   #test
+#alias redisn="/usr/bin/redis-cli -h 221.228.107.63 -p 10015" #online 操作需谨慎
+
+arg=
+key=
+if [ $# -ge 2 ];
+then
+    arg=$1
+    key=$2
+else
+    echo "args err. such as:./redis_help del key_name"
+    exit 0
+fi
+
+function del() {
+    echo "keys ${key}" | ${redisn}
+    echo "keys ${key}" | ${redisn} | gawk '{print "del", $1}' | ${redisn}
+}
+
+case $arg in
+"del")
+    echo ${arg} "  " ${key}
+    del
+;;
+esac

@@ -1,0 +1,35 @@
+{
+    "appName": "recommend_server",
+    "httpAddr": ":8001",
+    "db": {
+        "redis": {
+            "addr": "61.160.36.168:6395",
+            "maxIdle": 2000,
+            "db": 0,
+            "connTimeout": 1000,
+            "readTimeout": 1000,
+            "writeTimeout": 1000
+        }
+    },
+    "loggerconf": {
+        "debug": true,
+        "filename": "/data/budao-server/logs/recommend-server.log",
+        "maxdays": 15
+    },
+    "logCollectorConf": {
+        "isDisable": false,
+        "appName": "recommend_server",
+        "maxInterMSec": 500,
+        "maxRemainNum": 2000,
+        "reportFormat": {
+            "appVersion": "V3.0",
+            "scale": [50000,100000,150000,200000,250000,300000,350000,400000,450000,500000,550000,600000,650000,700000,750000,800000,850000,900000,950000,1000000]
+        }
+    },
+    "recommendConf": {
+        "cronTaskDisable"  : false,
+        "cronTaskInteranlSec" : 60,
+        "maxRetVideoNum" : 10,
+        "retPerTopicViewNum" : 10
+    }
+}

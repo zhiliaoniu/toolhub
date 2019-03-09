@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package scheduler;
+
+import "header.proto";
+
+//在这里上报心跳，和其他信息
+message WorkerHeartBeatRequest {
+    RequestHeader header = 1;
+}
+
+//在这里发送一些调度信息
+message WorkerHeartBeatResponse {
+    ResponseHeader header = 1;
+}
+

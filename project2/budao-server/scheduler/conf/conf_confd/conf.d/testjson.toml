@@ -1,0 +1,8 @@
+[template]
+src = "testjson.conf.tmpl"
+dest = "/tmp/testjson.conf"
+keys = [
+	"/abtest/cgi",
+]
+check_cmd = "/home/yangshengzhi/budao-server/scheduler/bin/a.sh testjson_check_cmd"
+reload_cmd = "/home/yangshengzhi/budao-server/scheduler/bin/a.sh testjson_reload_cmd"

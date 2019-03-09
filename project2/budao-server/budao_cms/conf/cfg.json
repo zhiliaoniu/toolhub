@@ -1,0 +1,56 @@
+{
+  "condition": true,
+  "debug": true,
+  "appName": "budao-cms-server",
+  "httpAddr": ":8099",
+  "db": {
+    "mysql": {
+      "budao":{"master": "127.0.0.1:3306",
+        "slave": "127.0.0.1:3306",
+        "database":"budao",
+        "passwd": "root",
+        "user": "root",
+        "tableDesc": {
+          "video_": 1,
+          "comment_": 2,
+          "user_": 1,
+          "topic_video_": 1,
+          "user_favor_comment_": 1,
+          "user_favor_video_": 1
+        }
+      },
+      "spider": {
+        "master": "127.0.0.1:3306",
+        "slave": "127.0.0.1:3306",
+        "database":"spider_test",
+        "passwd": "root",
+        "user": "root",
+        "tableDesc": {
+          "video_": 1,
+          "comment_": 1,
+          "user_": 1,
+          "user_favor_comment_": 1,
+          "user_favor_video_": 1
+        }
+      }
+    }
+  },
+  "loggerconf": {
+    "debug": true,
+    "filename": "budao-cms-server.log",
+    "maxdays": 15
+  },
+  "logCollectorConf": {
+    "isDisable": false,
+    "appName": "budao_server",
+    "maxInterMSec": 500,
+    "maxRemainNum": 2000,
+    "reportFormat": {
+      "appVersion": "V3.0",
+      "scale": [50000,100000,150000,200000,250000,300000,350000,400000,450000,500000,550000,600000,650000,700000,750000,800000,850000,900000,950000,1000000]
+    }
+  },
+  "extension":{
+    "transferUrl":"http://116.31.122.113:8080"
+  }
+}

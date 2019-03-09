@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package task;
+
+enum TaskStatus {
+    Ok = 0;
+    Finished = 1;
+    Dropped = 2;
+}
+
+message Regular {
+    string start_at  = 1;//"2017-11-06 09:15:40"
+    string finish_at = 2;// "2017-11-06 10:17:43",
+    int64  period_seconds = 3;// 3600,
+    int64 latency_seconds = 4; //3600
+}
+
+message Task {
+    string id = 1;
+    string type  = 2;
+    Regular regular = 3;
+    int64  max_worker_count = 4;// 10
+    bytes impl_conf = 5;//impl conf for worker
+}
+
+message Data {
+    map<string,Task> tasks = 1;
+}

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package budao;
+option objc_class_prefix = "JXZ";
+
+service AlertWeChatWork{
+  rpc Alert (AlertRequest) returns (AlertResponse);
+  rpc AlertGroup (AlertGroupRequest) returns (AlertResponse);
+};
+
+message AlertRequest
+{
+    string touser = 1; //消息接收者，多个接收者用‘,’分隔
+    string content = 2; //内容
+}
+
+message AlertGroupRequest
+{
+    string chatid = 1; //消息接收群id
+    string content = 2; //内容
+}
+
+message AlertResponse
+{
+    uint32 code = 1; //返回码
+    string msg = 2; //返回消息
+}

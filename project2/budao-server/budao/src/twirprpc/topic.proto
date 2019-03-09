@@ -1,0 +1,77 @@
+syntax = "proto3";
+import "common.proto";
+
+package budao;
+option java_package = "com.jxz.pb.budao";
+option java_multiple_files = true;
+option objc_class_prefix = "JXZ";
+
+service TopicService {
+    rpc GetTopicList (GetTopicListRequest) returns (GetTopicListResponse); // 获取某一分类下的主题列表
+    rpc GetTopicVideoList (GetTopicVideoListRequest) returns (GetTopicVideoListResponse); // 获取某一主题下的视频列表
+    rpc SubscribeTopic (SubscribeTopicRequest) returns (SubscribeTopicResponse); // 订阅主题
+    rpc GetSubscribedTopicList (GetSubscribedTopicListRequest) returns (GetSubscribedTopicListResponse); // 拉取用户关注话题的列表
+}
+
+message BannerItem {
+    string banner_id = 1;
+    string pic_url = 2;
+    string pic_md5 = 3;
+    string link_url = 4;
+    string desc = 5;
+}
+
+message GetTopicListRequest {
+    Header header = 1; // header
+    string last_topic_id= 2; // 当前展示话题的最后一个
+}
+
+message GetTopicListResponse {
+    Status status = 1; // 服务器返回的状态信息
+    repeated TopicItem topic_items = 2; // 具体主题信息列表
+    bool has_more = 3; // 是否还有更多
+    repeated BannerItem banner_items = 4; // 当请求中的last_topic_id为空时下发
+}
+
+message GetTopicVideoListRequest {
+    Header header = 1; // header
+    string topic_id = 2; // 主题id
+    string last_video_id = 3; // 主题下展示的最后一个视频id
+    uint64 last_publish_time = 4; // 主题下展示的最后一个视频的发布时间
+}
+
+message GetTopicVideoListResponse {
+    Status status = 1; // 服务器返回的状态信息
+    TopicItem topic_item = 2; // 主题信息
+    repeated ListItem list_items = 3; // 主题下视频信息
+    bool has_more = 4; // 是否还有更多
+}
+
+enum SubscribeAction {
+    SUBSCRIBE = 0; // 订阅
+    UNSUBSCRIBE = 1; // 取消订阅
+}
+
+message SubscribeTopicRequest {
+    Header header = 1; // header
+    SubscribeAction action = 2; // 订阅或者取消订阅
+    string topic_id = 3; // 主题id
+}
+
+message SubscribeTopicResponse {
+    Status status = 1; // 服务器返回的状态信息
+    uint32 count = 2; // 订阅数
+}
+
+message GetSubscribedTopicListRequest {
+    Header header = 1;
+    uint64 subscribe_time = 2; // 用于关注话题翻页的时间戳。首页传0，之后传上次返回带回来的时间。
+    string last_topic_id = 3; // 上次返回主题列表的最后一个主题id,初次为空
+}
+
+message GetSubscribedTopicListResponse {
+    Status status = 1;
+    repeated TopicItem topic_items = 2; // 关注的话题列表
+    uint64 subscribe_time = 3; // 用于关注话题翻页的时间戳。请求的时候传回给服务器。
+    bool has_more = 4; // 是否还有更多
+}

@@ -1,0 +1,42 @@
+syntax = "proto3";
+import "common.proto";
+
+package budao;
+option java_package = "com.jxz.pb.budao";
+option java_multiple_files = true;
+option objc_class_prefix = "JXZ";
+
+service TimeLineService {
+  rpc GetTimeLine (GetTimeLineRequest) returns (GetTimeLineResponse);
+  rpc GetSubscribedTimeLine (GetSubscribedTimeLineRequest) returns (GetSubscribedTimeLineResponse);
+  
+}
+
+message GetTimeLineRequest {
+    Header header = 1; // header
+    Direction direction = 2; // 列表刷新方向
+    string channel_id = 3; // 列表id
+}
+
+message GetTimeLineResponse {
+    Status status = 1;  // 服务器返回的状态信息
+    repeated ListItem list_items = 2; // 返回列表数据
+    bool has_more = 3; // 是否还有更多
+    bool clear_cache = 4; // 是否清除本地缓存
+    string tips = 5;  // 返回的提示
+}
+message GetSubscribedTimeLineRequest {
+    Header header = 1;
+    Direction direction = 2; // 列表刷新方向
+    string ref_video_id = 3; // 翻页的一个视频id
+    uint64 ref_video_time = 4; // 翻页的一个视频发布时间
+}
+
+message GetSubscribedTimeLineResponse {
+    Status status = 1;
+    repeated ListItem list_items = 2; // 返回的订阅视频列表
+    int32 topic_num = 3; //用户订阅话题数
+    bool has_more = 4;
+    bool clear_cache = 5;
+    string tips = 6;
+}

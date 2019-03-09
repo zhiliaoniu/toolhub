@@ -1,0 +1,39 @@
+syntax = "proto3";
+import "common.proto";
+
+package budao;
+option java_package = "com.jxz.pb.budao";
+option java_multiple_files = true;
+option objc_class_prefix = "JXZ";
+
+service LikeService {
+    rpc LikeVideo (LikeVideoRequest) returns (LikeVideoResponse); // 点赞视频
+    rpc LikeComment (LikeCommentRequest) returns (LikeCommentResponse); // 点赞评论或者回复
+}
+
+enum LikeAction {
+    LIKE = 0; // 点赞
+    UNLIKE = 1; // 取消点赞
+}
+
+message LikeVideoRequest {
+    Header header = 1; // header
+    LikeAction action = 2; // 点赞或取消点赞
+    string video_id = 3; // 视频id
+}
+
+message LikeVideoResponse {
+    Status status = 1; // 服务器返回的状态信息
+    uint32 count = 2; // 赞数
+}
+
+message LikeCommentRequest {
+    Header header = 1; // header
+    LikeAction action = 2; // 点赞评论或取消评论点赞
+    string comment_id = 3; // 评论id或者回复id
+}
+
+message LikeCommentResponse {
+    Status status = 1; // 服务器返回的状态信息
+    uint32 count = 2; // 赞数
+}

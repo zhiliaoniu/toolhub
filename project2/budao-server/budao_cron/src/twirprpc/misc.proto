@@ -1,0 +1,74 @@
+syntax = "proto3";
+import "common.proto";
+
+package budao;
+option java_package = "com.jxz.pb.budao";
+option java_multiple_files = true;
+option objc_class_prefix = "JXZ";
+
+service MiscService {
+    rpc ReportVideo (ReportVideoRequest) returns (ReportVideoResponse); // 举报视频
+    rpc ReportComment (ReportCommentRequest) returns (ReportCommentResponse); // 举报评论
+    rpc UserFeedback (UserFeedbackRequest) returns (UserFeedbackResponse); // 用户反馈
+    rpc PostDeviceToken (PostDeviceTokenRequest) returns (PostDeviceTokenResponse); // 上报设备id，用于push。
+    rpc GetRemoteConfig (GetRemoteConfigRequest) returns (GetRemoteConfigResponse); // 拉取app的配置信息
+    rpc GetVideoInfo (GetVideoInfoRequest) returns (GetVideoInfoResponse); // 根据视频id拉取视频信息
+}
+
+message ReportVideoRequest {
+    Header header = 1;
+    string video_id = 2;
+    string reason = 3;
+}
+
+message ReportVideoResponse {
+    Status status = 1;
+}
+
+message ReportCommentRequest {
+    Header header = 1;
+    string comment_id = 2;
+    string reason = 3;
+}
+
+message ReportCommentResponse {
+    Status status = 1;
+}
+
+message UserFeedbackRequest {
+    Header header   = 1;
+    string feedback = 2;
+    string contact  = 3;
+}
+
+message UserFeedbackResponse {
+    Status status = 1;
+}
+
+message PostDeviceTokenRequest {
+    Header header = 1;
+    string device_token = 2; // 可以通过header区分设备类型
+}
+
+message PostDeviceTokenResponse {
+    Status status = 1;
+}
+
+message GetRemoteConfigRequest {
+    Header header = 1;
+    string submodule_hash = 2;
+}
+
+message GetRemoteConfigResponse {
+    Status status = 1;
+}
+
+message GetVideoInfoRequest {
+    Header header = 1;
+    string video_id = 2; // 需求的videoid
+}
+
+message GetVideoInfoResponse {
+    Status status = 1;
+    ListItem list_item = 2;
+}

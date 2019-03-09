@@ -1,0 +1,9 @@
+{
+    "etcd": {
+        "name":"master2",
+	    "initial-cluster-state":"existing",
+	    "initial-cluster":"ubuntu=http://127.0.0.1:21989,master1=http://127.0.0.1:22989,master2=http://127.0.0.1:23989",
+        "client-urls":"http://127.0.0.1:23987",
+        "peer-urls":"http://127.0.0.1:23989"
+    }
+}

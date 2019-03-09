@@ -1,0 +1,38 @@
+syntax = "proto3";
+import "common.proto";
+
+package budao;
+option java_package = "com.jxz.pb.budao";
+option java_multiple_files = true;
+option objc_class_prefix = "JXZ";
+
+service RecommendService {
+    rpc GetRecommendVideo(GetRecommendVideoRequest) returns (GetRecommendVideoResponse); // 获取推荐视频流
+    rpc ReloadIndex(ReloadIndexRequest) returns (ReloadIndexResponse); // 重新加载索引
+}
+
+message RecommendVideoItem {
+    string video_id = 1; // 视频id
+    string reason = 2; // 推荐理由
+    string payload = 3; // 客户端透传信息
+}
+
+message GetRecommendVideoRequest{
+    Header header = 1; // header
+    string channel_id = 2; // 用户观看频道
+    uint32 count = 3; // 请求获取视频个数
+    uint32 session_req_num = 4; // 一个session中请求的次数
+}
+
+message GetRecommendVideoResponse{
+    Status status = 1; // 服务器返回的状态信息
+    repeated RecommendVideoItem recommend_video_items = 2; //推荐视频 
+}
+
+message ReloadIndexRequest{
+    string index_path = 1; // 索引绝对路径，包括文件名
+}
+
+message ReloadIndexResponse{
+    Status status = 1; // 服务器返回的状态信息
+}

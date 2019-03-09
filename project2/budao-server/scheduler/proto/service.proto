@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package scheduler;
+
+import "heartbeat.proto";
+import "header.proto";
+
+service MessageService {
+    //返回调度集群的member信息
+    rpc GetMembers(GetMembersRequest) returns (GetMembersResponse) {}
+    rpc WorkerHeartBeart(stream WorkerHeartBeatRequest) returns (stream WorkerHeartBeatResponse);
+}
+
+message GetMembersRequest {
+    RequestHeader header = 1;
+}
+
+message Member {
+    // name is the name of the PD member.
+    string name = 1;
+    // member_id is the unique id of the PD member.
+    uint64 member_id = 2;
+    repeated string peer_urls = 3;
+    repeated string client_urls = 4;
+    //int32 leader_priority = 5;
+}
+
+message GetMembersResponse {
+    ResponseHeader header = 1;
+
+    repeated Member members = 2;
+    Member leader = 3;
+    Member etcd_leader = 4;
+}

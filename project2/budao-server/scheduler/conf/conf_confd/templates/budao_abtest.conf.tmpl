@@ -1,0 +1,12 @@
+{
+{{range $index, $dir := lsdir "/abtest/budao/"}}{{$basedir:=base $dir}}
+"{{$basedir}}": {
+    {{$custdir := printf "/abtest/budao/%s/*" $dir}}{{range gets $custdir}}
+        "{{base .Key}}": {
+            "percent": {{$data := json .Value}}{{$data.percent}}
+        }
+    {{end}}
+    }
+{{end}}
+}
+

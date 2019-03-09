@@ -1,0 +1,233 @@
+syntax = "proto3";
+
+package budao;
+option java_package = "com.jxz.pb.budao";
+option java_multiple_files = true;
+option objc_class_prefix = "JXZ";
+
+// iOS设备信息
+message DeviceIOSInfo {
+    string idfv = 1;
+    string idfa = 2;
+    string guid = 3;
+}
+
+// 安卓设备信息
+message DeviceAndroidInfo {
+    string android_id = 1;
+    string imei = 2;
+    string imsi = 3;
+    string guid = 4;
+}
+
+// 设备信息
+message DeviceInfo {
+    enum Type {
+        ANDROID = 0;
+        IOS = 1;
+    }
+    string device_id = 1;  // 设备id
+    string app_version = 2;  // 应用版本号
+    Type device_type = 3; // 设备类型
+    string os_version = 4; // 设备系统版本信息
+    oneof Device {
+        DeviceIOSInfo ios = 5;
+        DeviceAndroidInfo android = 6;
+    }
+}
+
+// 网络类型
+enum Network {
+    NET_2G = 0;
+    NET_3G = 1;
+    NET_4G = 2;
+    NET_5G = 3;
+    WIFI = 4;
+    OTHER = 5;
+}
+
+// 环境信息
+message EnvironmentInfo {
+    Network network = 1; // 网络状况
+    string launch_type = 2; // 启动方式
+    uint32 experiment_id = 3; // experiment id
+    string store = 4; // 渠道信息
+}
+
+// 服务器请求带的公用信息
+message Header {
+    string user_id = 1;
+    string token = 2; //登录态校验
+    DeviceInfo device_info = 3;
+    EnvironmentInfo environment_info = 4;
+    uint64 timestamp = 5; // 移动端请求时间
+}
+
+// 列表刷新方向
+enum Direction {
+    ALL = 0; // 全量刷新
+    TOP = 1; // 从列表顶部刷新
+    BOTTOM = 2; // 从列表底部加载更多
+}
+
+// 服务器返回的公用状态信息
+message Status {
+    enum Code {
+        OK = 0;
+        SERVER_ERR = 1;
+        BAD_REQUEST = 2;
+        USER_NOTLOGIN = 101; // 用户未登陆
+        TOPIC_REPEATED_SUBSCRIBED = 102; // 话题已经关注过
+        QUESTION_REPEATED_ANSWERED = 103; // 问题已答过
+        VIDEO_REPEATED_LIKED = 104; // 视频已点过赞
+        COMMENT_REPEATED_LIKED = 105; // 评论已点过赞
+    }
+    Code code = 1; // 服务器返回的状态码
+    string message = 2; // 服务器返回的信息
+    uint64 server_time = 3; // 服务器时间
+}
+
+message ShareItem {
+    string title = 1; // 分享标题(微博有特殊的拼接逻辑拼好)
+    string desc = 2; // 分享描述
+    string icon_url = 3; // 分享图片
+    string share_url = 4; // 分享链接
+    string text = 5;
+}
+
+// 话题信息
+message TopicItem {
+    string topic_id = 1; // 话题id
+    string name = 2; // 话题名
+    string icon_url = 3; // 话题图标
+    string desc = 4; // 话题描述
+    bool subscribed = 5; // 是否已经关注
+    uint32 subscribe_count = 6; // 关注人数
+    repeated VideoItem video_items = 7; // 外显的视频
+    ShareItem share_item = 8; // 话题分享链接
+    bool share_disabled = 9; // 话题分享开关
+}
+
+// 视频信息
+message VideoItem {
+    string video_id = 1; // 视频id
+    string picture_url = 2; // 视频封面图
+    string title = 3; // 视频标题
+    uint32 width = 4; // 视频宽度
+    uint32 height = 5; // 视频高度
+    uint32 duration =6; // 视频时长
+    uint64 publish_time = 7;  // 文章时间戳
+    ShareItem share_item = 8; // 视频的分享链接
+}
+
+message OptionItem {
+    string option_id = 1;
+    string question_id = 2; // 对应的问题id
+    string content = 3; // 选项内容
+    bool right = 4; // 答案是否正确
+    uint32 choose_count = 5; // 选择次数
+}
+
+// 问题信息
+message QuestionItem {
+    string question_id = 1; // 问题id
+    string video_id= 2; // 视频id
+    uint32 hard_level = 3; // 问题难度
+    uint32 score = 4; // 问题分值
+    string content = 5; // 问题内容
+    repeated OptionItem options = 6;// 问题选项
+    uint32 answered_count = 7; // 回答次数
+    enum Style {
+        SINGLE = 0; // 单列
+        DOUBLE = 1; // 双列
+    }
+    Style style = 8; // 展示样式
+    string choose_option_id = 9; // 标识用户选择的选项
+}
+
+// 用户信息
+message UserItem {
+    string user_id = 1; // 用户id
+    string name = 2; // 用户名
+    string photo_url = 3; // 用户头像
+}
+
+// 评论信息
+message CommentItem {
+    string comment_id = 1; // 评论id
+    string video_id = 2; // 评论的视频id
+    UserItem user_item = 3; // 用户信息
+    string content = 4; // 评论内容
+    uint32 reply_count = 5; // 回复数
+    repeated ReplyItem reply_items = 6; // 外显的回复
+    uint32 like_count = 7; // 赞数
+    bool liked = 8; // 是否赞
+    uint64 comment_time = 9; // 评论时间戳
+}
+
+// 回复信息
+message ReplyItem {
+    string reply_id = 1; // 回复id
+    oneof Target {//用于渲染给哪个评论的回复
+        CommentItem comment_item = 2; // 回复对应的评论
+        ReplyItem reply_item = 3; // 回复对应的回复
+    }
+    UserItem user_item = 4; // 用户信息
+    string content = 5; // 回复内容
+    uint32 like_count = 6; // 赞数
+    bool liked = 7; // 是否赞
+    uint64 reply_time = 8; // 评论时间戳
+}
+
+// 文章信息
+message ArticleItem {
+    uint32 like_count = 1;  // 赞数目
+    bool liked = 2;  // 是否点赞
+    uint32 comment_count = 3; // 评论数
+    repeated CommentItem comment_items = 4; // 外显评论内容
+    uint32 view_count = 5; // 观看数
+    uint32 share_count = 6; //分享数
+    string channel_id = 7; // 视频所在的channelid
+}
+
+// 推荐信息
+message RecommendItem {
+    string reason = 1; // 推荐理由
+    string payload = 2; // 客户端透传信息
+    string trace_id = 3; // trace
+}
+
+// 开关信息
+message SwitchItem {
+    bool comment_disabled = 1; // 关闭评论开关
+    bool like_disabled = 2; // 关闭赞开关
+    bool share_disabled = 3; // 关闭分享开关
+    float list_video_ratio = 4; // 列表页视频宽高比
+    float detail_video_max_ratio = 5; // 底层页视频最大宽高比
+    float detail_video_min_ratio = 6; // 底层页视频最小宽高比
+    enum FullscreenType {
+        PORTRAIT = 0; // 竖屏
+        LANDSCAPE = 1; // 横屏
+    }
+    FullscreenType fullscreen_type = 7;
+}
+
+// 视频列表数据信息
+message ListItem {
+    VideoItem video_item = 1; // 视频信息
+    ArticleItem article_item = 2; // 文章信息
+    TopicItem topic_item = 3; // 话题信息
+    RecommendItem recommend_item = 4; // 推荐信息
+    SwitchItem switch_item = 5; // 开关信息
+    QuestionItem question_item = 6; // 问题信息
+}
+
+message ChannelItem {
+    string channel_id = 1;
+    string name = 2;
+}
+
+message TabItem {
+    string tab_id = 1;
+    string name = 2;
+}

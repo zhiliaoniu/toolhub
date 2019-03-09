@@ -1,0 +1,64 @@
+{
+    "appName": "budao_cron_test",
+    "db": {
+        "mysql": {
+            "budao": {
+                "master": "61.147.187.183:6301",
+                "slave": "183.36.121.66:8066",
+                "passwd": "V4hwwxZqu",
+                "user": "jxz_bd_test",
+                "database":"budao",
+                "tableDesc": {
+                    "video_": 1,
+                    "comment_": 1,
+                    "user_": 1,
+                    "user_favor_comment_": 1,
+                    "user_favor_video_": 1,
+                    "user_shared_video_": 1,
+                    "user_question_": 1,
+                    "user_follow_topic_": 1,
+                    "topic_video_": 1,
+                    "user_token_": 1
+                }
+            }
+        },
+        "redis": {
+            "addr":"61.160.36.168:6395",
+            "maxIdle": 2000,
+            "db": 0,
+            "connTimeout": 1000,
+            "readTimeout": 1000,
+            "writeTimeout": 1000
+        }
+    },
+    "loggerconf": {
+        "debug": true,
+        "filename": "/data/budao-server/logs/budao-cron.log",
+        "maxdays": 15
+    },
+    "logCollectorConf": {
+        "isDisable": false,
+        "appName": "budao_cron_test",
+        "maxInterMSec": 500,
+        "maxRemainNum": 2000,
+        "reportFormat": {
+            "appVersion": "V3.0",
+            "scale": [50000,100000,150000,200000,250000,300000,350000,400000,450000,500000,550000,600000,650000,700000,750000,800000,850000,900000,950000,1000000]
+        }
+    },
+    "commentConf": {
+        "cronTaskDisable"  : false,
+        "cronTaskInteranlSec" : 1800
+    },
+    "timelineConf": {
+        "showQuestion": true,
+        "cronTaskDisable": false,
+        "cronTaskInteranlSec" : 1800
+    },
+    "topicConf": {
+        "shareDisabled": false,
+        "cronTaskDisable": false,
+        "cronTaskInteranlSec" : 1800 
+    },
+    "testChannelShow": "true"
+}

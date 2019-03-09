@@ -1,0 +1,11 @@
+backend = "etcdv3"
+confdir = "/etc/confd"
+log-level = "debug"
+interval = 3 
+nodes = [ 
+	"http://127.0.0.1:21987",
+	"http://127.0.0.1:22987",
+	"http://127.0.0.1:23987",
+]
+prefix = "/" 
+scheme = "http"

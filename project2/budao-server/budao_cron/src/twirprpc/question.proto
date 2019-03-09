@@ -1,0 +1,22 @@
+syntax = "proto3";
+import "common.proto";
+
+package budao;
+option java_package = "com.jxz.pb.budao";
+option java_multiple_files = true;
+option objc_class_prefix = "JXZ";
+
+service QuestionService {
+    rpc AnswerQuestion (AnswerQuestionRequest) returns (AnswerQuestionResponse); // 回答问题
+}
+
+message AnswerQuestionRequest {
+    Header header = 1;
+    string question_id = 2; // 问题id
+    string option_id = 3; // 选项id
+}
+
+message AnswerQuestionResponse {
+    Status status = 1;
+    OptionItem option = 2;
+}

@@ -1,0 +1,48 @@
+{
+    "appName": "push_server",
+    "httpAddr": ":10128",
+    "db": {
+        "mysql": {
+            "budao": {
+                "master": "61.147.187.183:6301",
+                "slave": "183.36.121.66:8066",
+                "passwd": "V4hwwxZqu",
+                "user": "jxz_bd_test",
+                "database":"budao",
+                "tableDesc": {
+                    "video_": 1,
+                    "comment_": 1,
+                    "user_": 1,
+                    "user_favor_comment_": 1,
+                    "user_favor_video_": 1,
+                    "user_shared_video_": 1,
+                    "user_question_": 1,
+                    "user_follow_topic_": 1,
+                    "topic_video_": 1,
+                    "user_token_": 1,
+                    "user_push_": 1
+            }
+        }
+        }
+    },
+    "pushConf": {
+        "pemFileName": "./conf/sandbox.pem",
+        "androidAppKey": "ec22af927fc53702169818c0",
+        "androidSecret": "e08ce5d0bf5a145c21c2d2dd"
+    },
+    "loggerconf": {
+        "debug": false,
+        "filename": "/data/budao-server/logs/push-server.log",
+        "maxdays": 15
+    },
+    "logCollectorConf": {
+        "isDisable": false,
+        "appName": "push_server",
+        "maxInterMSec": 500,
+        "maxRemainNum": 2000,
+        "reportFormat": {
+            "appVersion": "V3.0",
+            "scale": [50000,100000,150000,200000,250000,300000,350000,400000,450000,500000,550000,600000,650000,700000,750000,800000,850000,900000,950000,1000000]
+        }
+    }
+}
