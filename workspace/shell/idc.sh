@@ -1,5 +1,5 @@
 #!/bin/bash
-host="cmdbapi.sysop.bigo.sg//api/v1/servers/queryServerinfo/"
+host="change me"
 while read line;
 do
     #echo $line
